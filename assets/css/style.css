@@ -1,1 +1,508 @@
+/* =========================================
+   FUTBOL IQ ACADEMY — GLOBAL STYLES
+   Clean, scalable, production-ready CSS
+========================================= */
+
+:root {
+  --bg-dark: #050b16;
+  --bg-hero: #0a1524;
+  --accent-red: #ff3b3b;
+  --accent-blue: #3ea6ff;
+  --text-main: #f5f7fb;
+  --text-muted: #c0c7d6;
+  --card-bg: #0f1b2e;
+  --border-soft: #1f2a3d;
+}
+
+/* RESET */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav {
+  position: absolute;
+  top: 20px;
+  left: 5%;
+  right: 5%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  font-size: 0.95rem;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--text-main);
+}
+
+.cta-nav {
+  padding: 10px 18px;
+  background: var(--accent-red);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.cta-nav:hover {
+  background: #ff5555;
+}
+
+/* =========================================
+   HERO SECTION + TACTICAL BACKGROUND
+========================================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg-hero);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+  overflow: hidden;
+}
+
+/* Tactical Grid */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.25;
+  z-index: 1;
+}
+
+/* Tactical Arrows */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,0.08) 2px, transparent 2px),
+    linear-gradient(135deg, transparent 2px, rgba(255,255,255,0.08) 2px);
+  background-size: 200px 200px;
+  opacity: 0.12;
+  z-index: 1;
+}
+
+/* Gradient Overlay */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.15), rgba(0,0,0,0.8)),
+    linear-gradient(135deg, rgba(62,166,255,0.25), transparent);
+  z-index: 2;
+}
+
+/* Hero Content */
+
+.hero-inner {
+  position: relative;
+  z-index: 10;
+  max-width: 720px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.hero-kicker {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.accent {
+  color: var(--accent-red);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin-bottom: 28px;
+}
+
+/* Hero Buttons */
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #ff5555;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* Hero Stats */
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 10px;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.hero-stat-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* =========================================
+   UNIVERSAL SECTION STYLES
+========================================= */
+
+.section {
+  padding: 70px 5%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 32px;
+}
+
+.section-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  max-width: 640px;
+}
+
+/* =========================================
+   WHY FUTBOL IQ ACADEMY — 6 BLOCK GRID
+========================================= */
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.why-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 18px 18px 20px;
+  border: 1px solid var(--border-soft);
+}
+
+.why-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(62,166,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: var(--accent-blue);
+}
+
+.why-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.why-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   WHAT WE DO / WHY WE DO IT
+========================================= */
+
+.two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.two-column p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.two-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+/* =========================================
+   PLAYER DEVELOPMENT HUB — 5 MODULES
+========================================= */
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.pillar-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 18px 18px 20px;
+  border: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pillar-index {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+}
+
+.pillar-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.pillar-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.pillar-tags {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pillar-tag {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(62,166,255,0.08);
+  color: var(--text-muted);
+}
+
+.pillars-footer {
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.pillars-footer a {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+/* =========================================
+   PERFORMANCE CHART + QUIZ CTA
+========================================= */
+
+.chart-wrapper {
+  margin-top: 24px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  padding: 20px;
+}
+
+.chart-placeholder {
+  height: 220px;
+  border-radius: 10px;
+  border: 1px dashed rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.quiz-cta {
+  margin-top: 28px;
+  background: linear-gradient(135deg, rgba(62,166,255,0.18), rgba(255,59,59,0.18));
+  border-radius: 14px;
+  padding: 22px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quiz-cta-title {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.quiz-cta-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  padding: 24px 5%;
+  border-top: 1px solid #111827;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS
+========================================= */
+
+@media (max-width: 960px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pillars-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 0 6% 60px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 
